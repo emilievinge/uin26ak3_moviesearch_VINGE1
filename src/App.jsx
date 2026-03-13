@@ -7,16 +7,15 @@ import Home from './pages/Home'
 import Movie from './pages/Movie'
 
 function App() {
-  const [movie, setMovie] = useState()
+
+  const [movies, setMovies] = useState()
 
   return (
     <Routes>
-      <Route index element={<Home />} />
-      <Route path=":movie" element={<Movie />} />
+      <Route index element={<Home movies={movies} setMovies={setMovies} />} />
+      <Route path=":movie" element={<Movie movies={movies} />} />
     </Routes>
   )
 }
 
 export default App
-
-// GitHub commit test. 2

@@ -1,6 +1,7 @@
     
-export default function MovieCard(movie, ) {
-    
+export default function MovieCard({movie}) {
+
+
     return (
         <>
         <h2>Foreslåtte filmer</h2>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import MovieCard from "../components/MovieCard"
 
-export default function Home(){
+export default function Home({movies, setMovies}){
     // Hjelp til søk https://chatgpt.com/c/69b2c210-8840-8332-a01d-34b2566c7850
     const [search, setSearch] = useState("james bond 007")
     const [focused, setFocused] = useState(false)
@@ -11,10 +11,6 @@ export default function Home(){
     // GJØR DETTE!!! API key skal ikke ligge "offentlig".
     const apiKey = import.meta.env.VITE_APP_API_KEY
 
-    useEffect(() => {
-        getMovies()
-    }, [])
-
     const getMovies = async()=>{
         try
         {
@@ -22,7 +18,8 @@ export default function Home(){
             const data = await response.json()
             
             // KI ba meg sette inn denne. https://chatgpt.com/c/69b2c210-8840-8332-a01d-34b2566c7850
-            setMovie(data)
+            //getMovie(data)
+            setMovies(data)
             console.log(data)
         }
         catch(err)
@@ -30,6 +27,10 @@ export default function Home(){
             console.error(err);
         }
     }
+
+    useEffect(() => {
+        getMovies()
+    }, [])
 
     const handleChange = (e)=>{
         setSearch(e.target.value)
@@ -53,7 +54,7 @@ export default function Home(){
                 <button onClick={getMovies}>Søk</button>
             </form>
             <section>
-                <MovieCard />
+                <MovieCard movie={movies} />
             </section>
             <footer>Movie search 2026</footer>
         </main>
