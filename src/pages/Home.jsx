@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import MovieCard from "../components/MovieCard"
 
 export default function Home(){
-    const [search, setSearch] = useState()
+    // Hjelp til søk https://chatgpt.com/c/69b2c210-8840-8332-a01d-34b2566c7850
+    const [search, setSearch] = useState("james bond 007")
     const [focused, setFocused] = useState(false)
-
-    const [movie, setMovie] = useState()
-
-    //console.log("Denne kommer fra storage", storedHistory)
     
     const baseUrl = `http://www.omdbapi.com/?s=${search}&apikey=`
     // GJØR DETTE!!! API key skal ikke ligge "offentlig".
@@ -22,6 +20,9 @@ export default function Home(){
         {
             const response = await fetch(`${baseUrl}${apiKey}`)
             const data = await response.json()
+            
+            // KI ba meg sette inn denne. https://chatgpt.com/c/69b2c210-8840-8332-a01d-34b2566c7850
+            setMovie(data)
             console.log(data)
         }
         catch(err)
@@ -38,9 +39,6 @@ export default function Home(){
     const handleSubmit = (e)=>{
         e.preventDefault()
         e.target.reset()
-
-        // setHistory((prev) => [...prev, search])
-
     }
 
     return (
@@ -55,11 +53,7 @@ export default function Home(){
                 <button onClick={getMovies}>Søk</button>
             </form>
             <section>
-                    {movie?.Search?.map((movie) => {
-                        <article key={movie?.imdbID} >
-                            <h3>Tittel: {movie?.Title}</h3>
-                            <img src={movie.Poster}/>
-                        </article>})}
+                <MovieCard />
             </section>
             <footer>Movie search 2026</footer>
         </main>
