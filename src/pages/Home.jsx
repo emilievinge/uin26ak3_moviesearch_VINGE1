@@ -45,16 +45,16 @@ export default function Home({movies, setMovies}){
 
     return (
         <main>
-            <h1>Forside</h1>
+            <h1>Hjem</h1>
             <form onSubmit={handleSubmit}>
                 <label>
                     Søk etter film
-                    <input id="search-box" type="search" placeholder="Harry Potter" onChange={handleChange} onFocus={()=> setFocused(true)} ></input>
+                    <input id="search" type="search" placeholder="Harry Potter" onChange={handleChange} onFocus={()=> setFocused(true)} ></input>
                 </label>
     
                 <button id="search-btn" onClick={getMovies}>Søk</button>
             </form>
-            <section>
+            <section id="movies">
                 <MovieCard movie={movies} />
             </section>
             <footer>Movie search 2026</footer>

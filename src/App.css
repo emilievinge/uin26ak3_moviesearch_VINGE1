@@ -42,16 +42,20 @@
 }
 
 /* Min CSS */
-
 .movie-card {
   margin: 1rem;
   border: solid #dddddd 2px;
   border-radius: 5px;
-  #alt-photo {
+  #poster {
     max-width: 400px;
   }
 }
 
+#search {
+  margin: 1rem;
+}
+
 #search-btn {
   margin: 1rem;
+  width: 100px;
 }
