@@ -5,7 +5,7 @@ export default function MovieCard({movie}) {
 
     return (
         <>
-        <h2>Foreslåtte filmer</h2>
+        <h2 id="suggested_movies">Foreslåtte filmer</h2>
         {movie?.Search?.map((mov) => (
             <article className="movie-card" key={mov?.imdbID} >
                 <Link to={`/${mov.imdbID}`}>

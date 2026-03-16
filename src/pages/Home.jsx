@@ -6,7 +6,8 @@ export default function Home({movies, setMovies}){
     const [search, setSearch] = useState("james bond 007")
     const [focused, setFocused] = useState(false)
     
-    const baseUrl = `http://www.omdbapi.com/?s=${search}&apikey=`
+    // Kilde til å filtrere ut spill: Medstudent Fridriksson. F. (2025)
+    const baseUrl = `http://www.omdbapi.com/?s=${search}&type=movie&apikey=`
     // GJØR DETTE!!! API key skal ikke ligge "offentlig".
     const apiKey = import.meta.env.VITE_APP_API_KEY
 
@@ -45,7 +46,7 @@ export default function Home({movies, setMovies}){
 
     return (
         <main>
-            <h1>Hjem</h1>
+            <h1 id="main-heading">Hjem</h1>
             <form onSubmit={handleSubmit}>
                 <label>
                     Søk etter film

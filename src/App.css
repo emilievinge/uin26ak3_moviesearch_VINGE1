@@ -42,6 +42,16 @@
 }
 
 /* Min CSS */
+
+#main-heading {
+  display: flex;
+  align-content: left;
+}
+
+#suggested_movies {
+  text-align: left;
+}
+
 .movie-card {
   margin: 1rem;
   border: solid #dddddd 2px;
@@ -49,6 +59,10 @@
   #poster {
     max-width: 400px;
   }
+}
+
+form {
+  text-align: left;
 }
 
 #search {
